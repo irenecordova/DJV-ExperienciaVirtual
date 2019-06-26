@@ -68,6 +68,9 @@ public class Pelota : MonoBehaviour
             countNivel = 0;
             nivel += 1;
             nivelText.text = "Nivel: " + nivel;
+            Vel += 1f;
+            body.velocity = Vector2.down * Vel;
+
         }
 
     }
