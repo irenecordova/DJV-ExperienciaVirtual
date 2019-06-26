@@ -12,6 +12,9 @@ public class Pelota : MonoBehaviour
     public Text scoreText;
     public Text winText;
     private int count;
+    private int countNivel;
+    private int nivel;
+    public Text nivelText;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +24,9 @@ public class Pelota : MonoBehaviour
         gameoverText.text = "";
         winText.text = "";
         SetScoreText();
+        countNivel = 0;
+        nivel = 1;
+        nivelText.text = "Nivel: " + nivel;
     }
 
     void OnCollisionEnter2D(Collision2D col)
@@ -38,6 +44,7 @@ public class Pelota : MonoBehaviour
         {
             GameObject.Destroy(otherObject);
             count += 10;
+            countNivel += 10;
             SetScoreText();
         }
     }
@@ -45,7 +52,7 @@ public class Pelota : MonoBehaviour
 
     void SetScoreText(){
         scoreText.text = "Puntaje: " + count.ToString();
-        if (count == 50)
+        if (count == 200)
         {
             winText.text = "¡Felicidades! Haz ganado el juego. Puntaje: " + count.ToString();
             scoreText.text = "";
@@ -56,6 +63,12 @@ public class Pelota : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (countNivel == 50)
+        {
+            countNivel = 0;
+            nivel += 1;
+            nivelText.text = "Nivel: " + nivel;
+        }
+
     }
 }
