@@ -7,17 +7,18 @@ public class Jugador : MonoBehaviour
 
     public Rigidbody2D body;
     public float walkingSpeed;
+    
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        
+          
     }
 
     // Update is called once per frame
     void Update()
     {
-         
         var v = body.velocity;
         var speed = 0f;
 
